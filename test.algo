@@ -1,0 +1,26 @@
+Vecteur :	STRUCT
+            x : FLOAT;
+            y : FLOAT;
+            END_STRUCT
+
+FUNCTION dot_product(V1:Vecteur,V2:Vecteur) : FLOAT
+VAR
+    ps:FLOAT
+BEGIN
+    ps=V1.x*V2.x + V1.y*V2*y
+    RETURN ps;
+END
+
+ALGORITHM Vect_ortho
+VAR
+   N:INTEGER
+   Matrice_Vect : ARRAY_OF Vecteur[N][2]; 
+BEGIN
+    FOR i FROM 0 TO N-1 STEP 1 DO
+        IF (dot_product(Matrice_Vect[i][0],Matrice_Vect[i][1]=0)) THEN
+           write("les paires de vecteurs", Matrice_Vect[i][0],Matrice_Vect[i][1],"sont orthogonaux")
+        ELSE
+        write("les paires de vecteurs", Matrice_Vect[i][0],Matrice_Vect[i][1]," ne sont pas orthogonaux")
+        END_IF
+    END_FOR
+END
