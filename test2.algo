@@ -1,25 +1,17 @@
-PROCEDURE swap(tab,x,y)
+
+PROCEDURE Tri_Insertion(Liste_Tri : ARRAY_OF INTEGER[n])
 VAR
-    elT:INTEGER;
-BEGIN
-    elT:=tab[x];
-    tab[x]:=tab[y];
-    tab[y]:=elT;
-END 
-PROCEDURE Tri_Insertion()
-VAR
-    n:INTEGER
-    Liste_Tri : ARRAY_OF INTEGER[n];
-    eCRT:INTEGER
+    n:INTEGER;
+    temp:INTEGER;
 BEGIN
     FOR i FROM 1 TO n-1 STEP 1 DO
-        eCRT=i;
-        WHILE (eCRT>0) DO
-        IF (Liste_Tri[eCRT]<Liste_Tri[eCRT-1]) THEN
-            swap(Liste_Tri, Liste_Tri[eCRT], Liste_Tri[eCRT-1])
-        END_IF
-            eCRT:=eCRT-1;
+        temp:=Liste_Tri[i];
+        j:=i;
+        WHILE (j>0 AND temp < Liste_Tri[j-1]) DO
+            Liste_Tri[j]:=Liste_Tri[j-1]
+            j:=j-1;
         END_WHILE
+        Liste_Tri[j]:=temp
     END_FOR
 END
 
